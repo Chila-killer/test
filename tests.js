@@ -40,7 +40,7 @@ function sumValues(numbers) {
 
 // console.log(sumValues(numbers));
 
-number = 128215436389897895678978478907
+// number = 128215436389897895678978478907
 
 function countNumbers(number) {
     stringNum = number.toString()
@@ -272,7 +272,7 @@ function getApplications(users) {
 
 // console.log(getApplications(usersw));
 
-let text = 'Ya es muy tarde'
+// let text = 'Ya es muy tarde'
 
 function reverseText(text) {
   let response = text.split("").reverse().join("");
@@ -296,4 +296,167 @@ function sumTwoArrays(array, array2) {
     return response;
 };
 
-console.log(sumTwoArrays(array, array2));
+// console.log(sumTwoArrays(array, array2));
+
+let number = 3
+
+let totalMultiples = 4
+
+function getNMultiples(number, totalMultiples) {
+    let response = [];
+    for (let i = 2; i < totalMultiples+2; i++) {
+        response.push(number * i);   
+    }
+    return response;
+  }
+
+// console.log(getNMultiples(number, totalMultiples));
+
+let text = 'Hola, me gusta la                          programaciónnnnnnnnnnnnnnnnn'
+
+function findMostCommonLetter(text) {
+    let text1 = text.split(" ").join("")
+    let response = text[0];
+    let obj = {};
+    let maxCount = 1;
+    for (let i = 0; i < text1.length; i++) {
+        let el = text1[i];
+        if (obj[el] == null ) {
+            obj[el] = 1
+        } else {
+            obj[el]++
+        }
+        if (obj[el] > maxCount) {
+            maxCount = obj[el]
+            response = el
+        }
+    };
+
+    return response;
+};
+
+// console.log(findMostCommonLetter(text));
+
+function getMultiples(number, limit) {
+    let response = [];
+    for (let i = 2; i * number < limit; i++) {
+      response.push(number * i)
+    };
+    return response;
+};
+
+// console.log(getMultiples(20, 100)); 
+
+phrase = 'Es un buen día para aprender JavaScript'
+
+letter = 'a'
+
+function countLetter(phrase, letter) {
+  
+    let obj = {};
+    for (let i = 0; i < phrase.length; i++) {
+      let el = phrase[i];
+      if (obj[el] == null) {
+        obj[el] = 1;
+      } else {
+        obj[el]++
+      };
+    };
+    let response = obj[letter];
+    return response;
+};
+
+// console.log(countLetter(phrase, letter));
+
+let studentsq = [
+    { 
+      name: 'Andrea', 
+      email: 'andrea@gmail.com', 
+      channel: 'youtube', 
+      application: null 
+    },
+    { 
+      name: 'Daniela', 
+      email: 'daniela@gmail.com', 
+      channel: 'youtube', 
+      application: { 
+        country: 'Colombia', 
+        state: 'Bogotá' 
+      } 
+    },
+    { 
+      name: 'Alondra', 
+      email: 'alondra@gmail.com', 
+      channel: 'twitter', 
+      application: { 
+        country: 'Colombia', 
+        state: 'Bogotá' 
+      } 
+    },
+    { 
+      name: 'Luis', 
+      email: 'luis@gmail.com', 
+      channel: 'twitter', 
+      application: { 
+        country: 'México', 
+        state: 'Nuevo León' 
+      } 
+    }]
+
+function countApplicationsByChannel(students) {
+    let studentsApp = []
+    let obj = {}
+    for (const user in students) {
+        if (students[user].application) {
+            studentsApp.push(students[user]);
+        };
+    };
+    for (let i = 0; i < studentsApp.length; i++) {
+        const el = studentsApp[i].channel;
+        if (obj[el] == null) {
+            obj[el] = 1
+        } else {
+            obj[el]++
+        };
+    };
+    return obj; 
+};
+
+// console.log(countApplicationsByChannel(studentsq));
+
+let students2 = [
+    { name: 'Georg', email: 'georg@academlo.com', country_id: 1 },
+    { name: 'Andrea', email: 'andrea@gmail.com', country_id: 2 },
+    { name: 'Daniela', email: 'daniela@gmail.com', country_id: 2 },
+    { name: 'Mónica', email: 'monica@gmail.com', country_id: 2 }
+];
+  
+let countries1 = [
+    { id: 1, name: 'Mexico', },
+    { id: 2, name: 'Colombia' }
+];
+  
+let countryName = 'Colombia';
+
+function countStudents(students, countries, countryName) {
+    let obj = {};
+    let countryNameId 
+    for (let i = 0; i < students.length; i++) {
+        let el = students[i].country_id;
+        if (obj[el] == null) {
+            obj[el] = 1
+        } else {
+            obj[el]++
+        };
+    };
+    for (const country in countries) {
+        if (countries[country].name == countryName) {
+            countryNameId = countries[country].id;
+
+        };
+    };
+    let response = obj[countryNameId];
+    return response;
+}
+
+console.log(countStudents(students2, countries1, countryName));
